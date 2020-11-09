@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profiles</title>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      Github Users
+    </a>
+  </nav>
+<div class="container" id="header-container">
+
+  <div class="row">
+    <img src="{{this.userProfile.avatar_url}}" class="rounded-circle mx-auto d-block" alt="" width="350" height="300">
+    <div class="col-12 text-center">
+      <span class="display-4">{{this.userProfile.name}}</span>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4" id="search_form_col">
+      <form class="form-inline" #userForm="ngForm" (ngSubmit)="searchUser()">
+
+        <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+          </div>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Username" [(ngModel)]="this.githubUsername">
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="screen container">
+  <div class="row">
+    <div class="sidebar col-2">
+      <ul class="list-unstyled">
+
+        <li class="media">
+          <img src="this.userProfile.avatar_url" class="mr-3" alt="">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Company</h5>
+            {{this.userProfile.company}}
+          </div>
+        </li>
+
+        <li class="media">
+          <img src="this.userProfile.avatar_url" class="mr-3" alt="">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Email</h5>
+            {{this.userProfile.email}}
+          </div>
+        </li>
+
+        <li class="media">
+          <img src="this.userProfile.avatar_url" class="mr-3" alt="">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Location</h5>
+            {{this.userProfile.location}}
+          </div>
+        </li>
+
+        <li class="media">
+          <img src="this.userProfile.avatar_url" class="mr-3" alt="">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Public Repositories</h5>
+            {{this.userProfile.public_repos}}
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="repositories col">
+
+
+      <div class="card-columns">
+        <div class="card" *ngFor="let repo of repos">
+          <img src="{{repo.owner.avatar_url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+            </h5>
+            <p class="card-text">{{repo.description}}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{repo.created_at}}</small>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+
