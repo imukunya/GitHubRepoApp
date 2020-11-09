@@ -6,12 +6,7 @@
   <title>GitHub Profiles</title>
 </head>
 <body>
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-      Github Users
-    </a>
-  </nav>
+
 <div class="container" id="header-container">
 
   <div class="row">
@@ -78,8 +73,17 @@
     </div>
 
     <div class="repositories col">
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>You successfully read this important alert message. This app will help yuo see alot of Github Users.
+        <hr>
+        <p class="mb-0">Whenever you ready!!!. enter any user up there and hit search</p>
 
+          <h3>
+            <p></p>
+          </h3>
 
+      </div>
       <div class="card-columns">
         <div class="card" *ngFor="let repo of repos">
           <img src="{{repo.owner.avatar_url}}" class="card-img-top" alt="...">
